@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import './index.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route}
+    from 'react-router-dom';
+import Home from './pages';
+import About from './pages/about';
+import Login from './pages/login';
+import Contact from './pages/contact';
+import Dashboard from './pages/dashboard';
+import Preferences from './pages/preferences';
+  
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [token, setToken] = useState();
+        if (!token){
+            return <Login setToken={useState} />
+        }
+return (
+    <Router>
+    <Navbar />
+    <Routes>
+        <Route exact path='/'  element={<Home />} />
+        <Route path='/about' element={<About/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/dashboard' element={<Dashboard/>} />
+        <Route path='/preferences' element ={<Preferences/>} />
+    </Routes>
+    </Router>
+);
 }
-
+  
 export default App;
