@@ -1,26 +1,19 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import React from 'react';
+import JsonDataDisplay from './components/table';
 import "../index.css"
 
-const Dashboard = () => {
-  const [authenticated, setauthenticated] = useState(null);
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("authenticated");
-    if (loggedInUser) {
-      setauthenticated(loggedInUser);
-    }
-  }, []);
-  if (!authenticated) {
-    return <Navigate replace to="/login" />;
-  
-  } else {
-    return (
-      <div>
-        <p>Welcome to your Dashboard</p>
-      </div>
-    );
-  }
+const Dashborard = () => {
+return (
+	<div>
+		<div className='dash'>
+			<h1>Welcome Back, User!</h1>
+			<h2> Here's your data from past events!</h2>
+		</div>
+		<JsonDataDisplay/>
+	</div>
+	
+	
+);
 };
-export default Dashboard;
-  
+
+export default Dashborard;
