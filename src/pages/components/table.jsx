@@ -4,7 +4,6 @@ import "../../index.css"
 import Table from 'react-bootstrap/Table';
 import { TableBody, TableHead } from "@mui/material";                                                                                                                 
 
-
 function JsonDataDisplay(){
   const [persons, setPersons] = useState(JsonData);
   return (
@@ -33,3 +32,6 @@ function JsonDataDisplay(){
 };
 
  export default JsonDataDisplay;
+
+
+//  
